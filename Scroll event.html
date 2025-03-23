@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Event</title>
+    <style>
+        body {
+            height: 2000px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 50px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">Scroll down to change my color</header>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            const header = document.getElementById("header");
+            if (window.scrollY > 700) {
+                header.style.backgroundColor = "lightcoral";
+            } else {
+                header.style.backgroundColor = "lightblue";
+            }
+        });
+    </script>
+</body>
+</html>

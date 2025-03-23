@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Pass Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p#result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Exam Pass Checker</h2>
+        <label for="score">Enter your score:</label><br>
+        <input type="number" id="score" min="0" max="100"><br>
+        <button id="checkPass">Check Result</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById("checkPass").addEventListener("click", function () {
+            const score = parseInt(document.getElementById("score").value);
+            const passMark = 50;
+            const resultElement = document.getElementById("result");
+
+            if (isNaN(score)) {
+                resultElement.textContent = "Please enter a valid number.";
+                resultElement.style.color = "red";
+            } else if (score >= passMark) {
+                resultElement.textContent = "🎉 Congratulations! You passed the exam.";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.textContent = "❌ Sorry, you failed. Try again!";
+                resultElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

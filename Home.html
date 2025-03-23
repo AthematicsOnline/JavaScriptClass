@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="School.css">
+</head>
+<body>
+    <header>
+        <img src="IMAGES/20220813_173731.png" alt="School Logo">
+        <h1>Welcome to Athematics</h1>
+        <p id="greeting"></p>
+    </header>
+    <nav>
+        <a href="#">Home</a> |
+        <a href="#">About Us</a> |
+        <a href="#">Courses</a> |
+        <a href="#">Contact</a> 
+    </nav>
+    <div class="container">
+        <div class="content">
+            <h2>About Us</h2>
+            <div class="sliding-banner">
+                <div class="banner-images">
+                    <img src="IMAGES/nature.jpg" alt="Image 1">
+                    <img src="IMAGES/istockphoto.jpg" alt="Image 2">
+                    <img src="IMAGES/portrait.webp" alt="Image 3">
+                    <img src="IMAGES/WhatsApp.jpeg" alt="Image 4">
+                </div>
+            </div>
+            <p>Welcome to Athematics. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel ligula id quam tristique tincidunt. Sed faucibus neque eu auctor.</p>
+        </div>
+        <div class="sidebar">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Athematics School. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop">Back to Top</button>
+
+    <!-- Modal for Announcements -->
+    <div id="announcementModal">
+        <div id="modalContent">
+            <span class="close">&times;</span>
+            <h2>Announcement</h2>
+            <p>Welcome to the new semester! Check out the latest updates on our website.</p>
+        </div>
+    </div>
+
+<script src="school.js"></script>
+</body>
+</html>
+ /* Add your CSS styles here */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+header {
+    background-color: rgb(185, 225, 241);
+    color: #6107aa;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+header img {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
+nav {
+    background-color: rgb(60, 5, 108);
+    color: goldenrod;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: goldenrod;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content {
+    flex: 3;
+    padding: 20px;
+}
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-left: 1px solid #ddd;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #6107aa;
+    font-weight: bold;
+}
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #6107aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* Modal Styles */
+#announcementModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+#modalContent {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Sliding Banner Styles */
+.sliding-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.banner-images {
+    display: flex;
+    width: 400%;
+    animation: slide 20s linear infinite;
+}
+.banner-images img {
+    width: 25%;
+    height: 300px;
+    object-fit: cover;
+}
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}   // Greeting message based on the current time
+  function setGreeting() {
+    const greetingElement = document.getElementById('greeting');
+    const now = new Date();
+    const hours = now.getHours();
+    let greeting;
+    
+    if (hours < 12) {
+        greeting = 'Good morning!';
+    } else if (hours < 18) {
+        greeting = 'Good afternoon!';
+    } else {
+        greeting = 'Good evening!';
+    }
+    
+    greetingElement.textContent = greeting;
+}
+
+// Back to Top button functionality
+const backToTopButton = document.getElementById('backToTop');
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+
+backToTopButton.addEventListener('click', function() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
+
+// Modal functionality
+const modal = document.getElementById('announcementModal');
+const closeModalButton = document.querySelector('.close');
+
+window.onload = function() {
+    modal.style.display = 'block';
+    setGreeting();
+};
+
+closeModalButton.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}; this is the complete html, css and javascript code. help me add a search bar. 

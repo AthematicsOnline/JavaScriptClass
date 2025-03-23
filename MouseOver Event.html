@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouseover Event</title>
+    <style>
+        #hoverBox {
+            width: 700px;
+            height: 500px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="hoverBox">Hover over me!</div>
+
+    <script>
+        const box = document.getElementById("hoverBox");
+
+        box.addEventListener("mouseover", function() {
+            box.style.backgroundColor = "lightcoral";
+        });
+
+        box.addEventListener("mouseout", function() {
+            box.style.backgroundColor = "lightblue";
+        });
+    </script>
+</body>
+</html>
